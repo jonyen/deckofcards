@@ -12,7 +12,7 @@ public class DeckOfCards {
     System.out.println("Previous deck: " + Arrays.toString(previousDeck));
     System.out.println("Current deck: " + Arrays.toString(currentDeck));
     System.out.println("Check that current deck is the same");
-    System.out.println(Arrays.equals(previousDeck, currentDeck));
+    System.out.println(Arrays.equals(previousDeck, currentDeck) + "\n");
 
     previousDeck = deck.cards.clone();
     deck.shuffle();
@@ -20,20 +20,21 @@ public class DeckOfCards {
 
     System.out.println("Previous deck: " + Arrays.toString(previousDeck));
     System.out.println("Current deck: " + Arrays.toString(currentDeck));
-    System.out.println("Deck length: " + currentDeck.length);
     System.out.println("Current deck should not be the same");
     System.out.println(Arrays.equals(previousDeck, currentDeck)); 
 
+    System.out.println("\nNumber of cards in deck: " + currentDeck.length);
+
     // Test that shuffle works after dealing card
     for (int x = 0; x < 60; x++) {
-      deck.dealOneCard();
-      System.out.println("\nDeal one card...");
+      Card deal = deck.dealOneCard();
+      System.out.println("\nDeal one card... dealed a " + deal);
       previousDeck = deck.cards.clone();
       deck.shuffle();
       currentDeck = deck.cards.clone();
-      System.out.println("Previous deck: " + Arrays.toString(previousDeck));
-      System.out.println("Current deck: " + Arrays.toString(currentDeck));
-      System.out.println("Deck length: " + currentDeck.length);
+      System.out.println("Deck after deal: " + Arrays.toString(previousDeck));
+      System.out.println("Deck after shuffle: " + Arrays.toString(currentDeck));
+      System.out.println("Number of cards in deck: " + currentDeck.length);
     }
   }
 
