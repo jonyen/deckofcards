@@ -26,6 +26,7 @@ public class DeckOfCards {
     System.out.println("\nNumber of cards in deck: " + currentDeck.length);
 
     // Test that shuffle works after dealing card
+    // Deal to 60 to test that it works after all cards have been dealt
     for (int x = 0; x < 60; x++) {
       Card deal = deck.dealOneCard();
       System.out.println("\nDeal one card... dealed a " + deal);
@@ -51,11 +52,11 @@ public class DeckOfCards {
 
     // Constructor for deck, initializes all of the cards in the deck
     Deck() {
-      int cardIdx = 0;
+      int cardIndex = 0;
       for (int i = 0; i < SUITS.length; i++) {
         for (int j = 0; j < RANKS.length; j++) {
-          cards[cardIdx] = new Card(RANKS[j], SUITS[i]);
-          cardIdx++;
+          cards[cardIndex] = new Card(RANKS[j], SUITS[i]);
+          cardIndex++;
         }
       }
     }
