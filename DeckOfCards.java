@@ -37,13 +37,13 @@ public class DeckOfCards {
     }
   }
 
-  // Cards are represented in form of rank and suit, so for instance "2d" is 2 of diamonds,
-  // "As" is ace of spades, "Qh" is queen of hearts, etc.
+  // Cards are represented in form of rank and suit, so for instance "2♦" is 2 of diamonds,
+  // "A♠" is Ace of spades, "Q♥" is Queen of hearts, etc.
 
   // Diamonds, Clubs, Hearts, Spades
-  static String[] SUITS = new String[] {"d", "c", "h", "s"};
-  // 2-10, Jack, Queen, King, Ace
-  static String[] RANKS = new String[] {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+  static String[] SUITS = new String[] {"♦", "♣", "♥", "♠"};
+  // Ace, 2-10, Jack, Queen, King
+  static String[] RANKS = new String[] {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"};
 
   static class Deck {
     Card[] cards = new Card[52];
