@@ -1,5 +1,6 @@
 import java.util.Random;
 import java.util.Arrays;
+import java.util.stream.Stream; 
 
 public class DeckOfCards {
   public static void main(String[] args) { 
@@ -37,6 +38,30 @@ public class DeckOfCards {
       System.out.println("Deck after shuffle: " + Arrays.toString(currentDeck));
       System.out.println("Number of cards in deck: " + currentDeck.length);
     }
+
+    // Test a deck larger than the standard 52 card deck
+    Deck bigDeck = new Deck();
+    Card[] doubleDeck = new Card[52 * 2];
+    for (int x = 0; x < 52; x++) {
+      doubleDeck[x] = doubleDeck[x + 52] = bigDeck.cards[x];
+    }
+
+    bigDeck.cards = doubleDeck;
+
+    System.out.println("Double deck: " + bigDeck);
+    bigDeck.shuffle();
+    System.out.println("Double deck shuffled: " + bigDeck);
+    System.out.println("Number of cards in deck: " + bigDeck.length());
+    for (int x = 0; x < 110; x++) {
+      Card deal = bigDeck.dealOneCard();
+      System.out.println("\nDeal one card... dealed a " + deal);
+      previousDeck = bigDeck.cards.clone();
+      bigDeck.shuffle();
+      currentDeck = bigDeck.cards.clone();
+      System.out.println("Deck after deal: " + Arrays.toString(previousDeck));
+      System.out.println("Deck after shuffle: " + Arrays.toString(currentDeck));
+      System.out.println("Number of cards in deck: " + currentDeck.length);
+    } 
   }
 
   // Cards are represented in form of rank and suit, so for instance "2♦" is 2 of diamonds,
@@ -89,6 +114,14 @@ public class DeckOfCards {
       cards = newDeck;
 
       return cardToDeal;
+    }
+
+    public String toString() {
+      return Arrays.toString(this.cards);
+    }
+
+    int length() {
+      return this.cards.length;
     }
   }
 
